@@ -35,4 +35,12 @@ public class MyController {
     public @ResponseBody Iterable<Car> getAll() {
         return repository.findAll();
     }
+
+    @GetMapping("/info")
+    public String showMessage(@RequestParam String name,
+                              @RequestParam Integer power,
+                              Car car) {
+        car = new Car(name,power);
+        return "message";
+    }
 }
