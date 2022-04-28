@@ -11,8 +11,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class MyController {
 
+    private final MyRepository repository;
+
     @Autowired
-    private MyRepository repository;
+    public MyController(MyRepository repository) {
+        this.repository = repository;
+    }
 
     @GetMapping("/")
     public String toDo() {
